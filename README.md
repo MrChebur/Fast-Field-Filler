@@ -1,5 +1,4 @@
 # Fast-Field-Filler
- Fast Field Filler
  
 The plugin was created to quickly fill in the fields in the attribute table.
 
