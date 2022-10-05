@@ -1,0 +1,12 @@
+{
+    "max_features_selected": 7,
+    "max_classes": 6,
+    "classes_dict": {
+        "1": "white",
+        "2": "blue",
+        "3": "red",
+        "4": "circle",
+        "5": "triangle",
+        "6": "square"
+    }
+}
