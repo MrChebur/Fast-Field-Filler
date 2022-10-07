@@ -8,6 +8,6 @@ URL:(https://github.com/MrChebur/Fast-Field-Filler/blob/main/examples/Plugin wor
 
 ![Text](.Plugin work example.gif)
 
-
+https://github.com/MrChebur/Fast-Field-Filler/blob/cc74210b4dd34a49fceaaa0bade4d97984bb8540/examples/Plugin%20work%20example.gif
 ![Farmers Market Finder - Animated gif demo](demo/demo.gif)
-![Farmers Market Finder - Animated gif demo](blob/main/examples/Plugin work example.gif)
+![Farmers Market Finder - Animated gif demo](blob/cc74210b4dd34a49fceaaa0bade4d97984bb8540/examples/Plugin%20work%20example.gif)
