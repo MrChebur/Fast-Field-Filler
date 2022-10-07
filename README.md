@@ -2,7 +2,7 @@
  
 The plugin allows you to specify a layer, a field in its attribute table and fill all selected objects with a preset value.
  
-Аor example, this plugin may be useful:
+For example, this plugin may be useful:
 - If you classify thermal spots detected by remote sensing data and divide all objects into: fires, anthropogenic heat sources, false alarms.
 - If you check the results of the neural network by dividing selected objects into two classes: correctly selected objects (True), falsely selected objects (False).
 
