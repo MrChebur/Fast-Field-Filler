@@ -1,8 +1,10 @@
 # Fast-Field-Filler
  
-The plugin was created to quickly fill in the fields in the attribute table.
-
-The plugin allows you to quickly select the desired vector objects with the mouse, specify the desired field and quickly fill in the desired field of all objects in the pre-prepared list. For example, this plugin may be useful if you classify thermal spots detected by remote sensing data and divide all objects into: fires, anthropogenic heat sources, false alarms.
+The plugin allows you to specify a layer, a field in its attribute table and fill all selected objects with a preset value.
+ 
+Аor example, this plugin may be useful:
+- If you classify thermal spots detected by remote sensing data and divide all objects into: fires, anthropogenic heat sources, false alarms.
+- If you check the results of the neural network by dividing selected objects into two classes: correctly selected objects (True), falsely selected objects (False).
 
 # Plugin features:
 - Set from 1 to 10 preset class values.
