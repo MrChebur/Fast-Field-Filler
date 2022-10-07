@@ -1,6 +1,5 @@
 # Fast-Field-Filler
- 
-The plugin allows you to specify a layer, a field in its attribute table and fill all selected objects with a preset value.
+The plugin was created to quickly fill in the fields in the attribute table. It allows you to specify a layer, a field in its attribute table and fill all selected objects with a preset value.
  
 For example, this plugin may be useful:
 - If you check the results of the neural network by dividing selected objects into two classes: correctly selected objects (True), falsely selected objects (False).
