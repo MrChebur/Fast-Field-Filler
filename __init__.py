@@ -8,7 +8,7 @@
                              -------------------
         begin                : 2022-05-30
         copyright            : (C) 2022 by MrChebur
-        email                : hidden
+        email                : mrCheburPlugins@inbox.ru
         git sha              : $Format:%H$
  ***************************************************************************/
 

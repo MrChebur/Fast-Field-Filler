@@ -65,11 +65,8 @@ class FastFieldFiller:
         # Declare instance attributes
         self.actions = []
         self.menu = self.tr(u'&Fast Field Filler')
-        # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'FastFieldFiller')
         self.toolbar.setObjectName(u'FastFieldFiller')
-
-        # print "** INITIALIZING FastFieldFiller"
 
         self.pluginIsActive = False
         self.dockwidget = None
@@ -99,7 +96,9 @@ class FastFieldFiller:
             add_to_toolbar=True,
             status_tip=None,
             whats_this=None,
-            parent=None):
+            parent=None,
+            create_sub_menu=False
+    ):
         """Add a toolbar icon to the toolbar.
 
         :param icon_path: Path to the icon for this action. Can be a resource
@@ -154,9 +153,10 @@ class FastFieldFiller:
             self.toolbar.addAction(action)
 
         if add_to_menu:
-            self.iface.addPluginToMenu(
-                self.menu,
-                action)
+            if create_sub_menu:
+                self.iface.addPluginToMenu(self.menu, action)  # this will create menu with sub menus
+            else:
+                self.iface.pluginMenu().addAction(action)  # don't create sub menus
 
         self.actions.append(action)
 
@@ -164,13 +164,12 @@ class FastFieldFiller:
 
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
-
         icon_path = ':/plugins/fast_field_filler/icon.png'
-        self.add_action(
-            icon_path,
-            text=self.tr(u'Show/hide main plugin window'),
-            callback=self.run,
-            parent=self.iface.mainWindow())
+        self.add_action(icon_path,
+                        text=u'Fast Field Filler',
+                        callback=self.run,
+                        parent=self.iface.mainWindow())
+
 
     def onClosePlugin(self):
         """Cleanup necessary items here when plugin dockwidget is closed"""
@@ -208,7 +207,7 @@ class FastFieldFiller:
             # dockwidget may not exist if:
             #    first run of plugin
             #    removed on close (see self.onClosePlugin method)
-            if self.dockwidget == None:
+            if self.dockwidget is None:
                 # Create the dockwidget (after translation) and keep reference
                 self.dockwidget = FastFieldFillerDockWidget(self.iface)
 

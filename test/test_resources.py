@@ -8,7 +8,7 @@
 
 """
 
-__author__ = 'hidden'
+__author__ = 'mrCheburPlugins@inbox.ru'
 __date__ = '2022-05-30'
 __copyright__ = 'Copyright 2022, MrChebur'
 
@@ -39,6 +39,3 @@ if __name__ == "__main__":
     suite = unittest.makeSuite(FastFieldFillerResourcesTest)
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
-
-
-
