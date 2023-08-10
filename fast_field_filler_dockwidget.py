@@ -533,3 +533,18 @@ class FastFieldFillerDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
 # TODO: support as many data types as possible
 # TODO: if "save combobox" is empty - you can't save a file! You have to manually create new json file and overwrite it.
+#  Example:
+#  {
+#     "max_features_selected": 10,
+#     "max_classes": 6,
+#     "classes_dict": {
+#         "1": "circle",
+#         "2": "triangle",
+#         "3": "square",
+#         "4": "blue",
+#         "5": "green",
+#         "6": "red",
+#         "7": null,
+#         "8": null
+#     }
+# }
