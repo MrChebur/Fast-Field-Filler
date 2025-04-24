@@ -153,10 +153,13 @@ class FastFieldFiller:
             self.toolbar.addAction(action)
 
         if add_to_menu:
-            if create_sub_menu:
-                self.iface.addPluginToMenu(self.menu, action)  # this will create menu with sub menus
-            else:
-                self.iface.pluginMenu().addAction(action)  # don't create sub menus
+            self.iface.addPluginToMenu(self.menu, action)
+
+        # if add_to_menu:
+        #     if create_sub_menu:
+        #         self.iface.addPluginToMenu(self.menu, action)  # this will create menu with sub menus
+        #     else:
+        #         self.iface.pluginMenu().addAction(action)  # don't create sub menus
 
         self.actions.append(action)
 
@@ -165,35 +168,25 @@ class FastFieldFiller:
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
         icon_path = ':/plugins/fast_field_filler/icon.png'
-        self.add_action(icon_path,
-                        text=u'Fast Field Filler',
-                        callback=self.run,
-                        parent=self.iface.mainWindow())
-
+        self.add_action(
+            icon_path,
+            text=u'Fast Field Filler',
+            callback=self.run,
+            parent=self.iface.mainWindow())
 
     def onClosePlugin(self):
         """Cleanup necessary items here when plugin dockwidget is closed"""
-
-        # print "** CLOSING FastFieldFiller"
-
-        # disconnects
         self.dockwidget.closingPlugin.disconnect(self.onClosePlugin)
-
-        # remove this statement if dockwidget is to remain
-        # for reuse if plugin is reopened
-        # Commented next statement since it causes QGIS crashe
-        # when closing the docked window:
-        self.dockwidget = None
-
         self.pluginIsActive = False
 
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
-        # print "** UNLOAD FastFieldFiller"
         for action in self.actions:
-            self.iface.removePluginMenu(self.tr(u'&Fast Field Filler'), action)
-            self.iface.removeToolBarIcon(action)
-        # remove the toolbar
+            try:
+                self.iface.removePluginMenu(self.tr(u'&Fast Field Filler'), action)
+                self.iface.removeToolBarIcon(action)
+            except:
+                pass
         del self.toolbar
 
     def run(self):
@@ -201,27 +194,15 @@ class FastFieldFiller:
 
         if not self.pluginIsActive:
             self.pluginIsActive = True
-
-            # print "** STARTING FastFieldFiller"
-
-            # dockwidget may not exist if:
-            #    first run of plugin
-            #    removed on close (see self.onClosePlugin method)
             if self.dockwidget is None:
-                # Create the dockwidget (after translation) and keep reference
                 self.dockwidget = FastFieldFillerDockWidget(self.iface)
 
-            # connect to provide cleanup on closing of dockwidget
             self.dockwidget.closingPlugin.connect(self.onClosePlugin)
-
-            # show the dockwidget
             self.iface.addDockWidget(Qt.LeftDockWidgetArea, self.dockwidget)
-            # self.iface.addTabifiedDockWidget(Qt.LeftDockWidgetArea, self.dockwidget)
             self.dockwidget.setFloating(True)
-            # self.iface.addWidget(self.dockwidget)
             self.dockwidget.show()
 
-        elif self.pluginIsActive:
+        else:
             if self.dockwidget.isVisible():
                 self.dockwidget.hide()
             else:
