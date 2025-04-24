@@ -17,7 +17,7 @@ about=
     	Assign hotkeys (limited choice) to quickly fill the attribute table with the desired values.
    	 Set a limit on the maximum selection of objects ( to avoid accidentally overwriting everything).
     	Buttons to save results and rollback changes.
-version=1.0.1
+version=1.0.2
 author=MrChebur
 email=mrCheburPlugins@inbox.ru
 tracker=https://github.com/MrChebur/Fast-Field-Filler/issues
